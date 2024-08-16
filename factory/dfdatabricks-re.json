@@ -1,0 +1,9 @@
+{
+	"name": "dfdatabricks-re",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ba0ca230-af6d-4b77-bd6c-0fdca9308025",
+		"tenantId": "b515af0b-7899-4224-bfd9-79cf9b91a278"
+	}
+}
