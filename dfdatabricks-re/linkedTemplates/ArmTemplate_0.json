@@ -100,6 +100,36 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/databricks_re')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/run_pipeline_after_data_ingestion')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "datalake-ingestion",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 1,
+						"startTime": "2024-08-18T12:53:00",
+						"timeZone": "E. South America Standard Time"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/datalake-ingestion')]"
+			]
 		}
 	]
 }
